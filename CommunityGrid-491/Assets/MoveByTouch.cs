@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MoveByTouch : MonoBehaviour
 {
     public Rigidbody car;
     public float turnSpeed;
 
-    public bool Left;
-    public bool Right;
+    public LeftBtn leftBtn;
+    public RightBtn rightBtn;
+
+    // public GameObject leftBtn;
+    // public GameObject rightBtn;
     private float screenWidth;
 
     void Start() {
@@ -27,14 +31,28 @@ public class MoveByTouch : MonoBehaviour
     // }
 
     void FixedUpdate() {
-        // if (tapLeft()){
-        //     car.AddForce(new Vector3(horizontalInput * turnSpeed * Time.deltaTime, 0, 0));
-        // }
-        // else if (tapRight()){
+        if (LeftBtn.LeftBtnDown){
+            Debug.Log("TURN LEFT");
+            // car.AddForce(new Vector3(-1.0f * turnSpeed * Time.deltaTime, 0, 0));
+            transform.Translate(Vector3.left * turnSpeed * Time.deltaTime);
+        }
+        else if (RightBtn.RightBtnDown){
+            Debug.Log("TURN RIGHT");
+            // car.AddForce(new Vector3(1.0f * turnSpeed * Time.deltaTime, 0, 0));
+            transform.Translate(Vector3.right * turnSpeed * Time.deltaTime);
+        }
+        else{
 
-        // }
-        // else{
-
-        // }
+        }
     }
+
+    // public void OnPointerDown(PointerEventData eventData)
+    // {
+    //     throw new System.NotImplementedException();
+    // }
+
+    // public void OnPointerUp(PointerEventData eventData)
+    // {
+    //     throw new System.NotImplementedException();
+    // }
 }

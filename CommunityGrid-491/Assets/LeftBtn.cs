@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class LeftBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    bool LeftBtnDown = false;
+    public static bool LeftBtnDown = false;
 
     public void OnPointerDown(PointerEventData eventData) {
         Debug.Log("L BTN DOWN");
