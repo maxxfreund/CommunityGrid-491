@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class MoveByTouch : MonoBehaviour
 {
@@ -12,23 +11,11 @@ public class MoveByTouch : MonoBehaviour
 
     public LeftBtn leftBtn;
     public RightBtn rightBtn;
-
-    // public GameObject leftBtn;
-    // public GameObject rightBtn;
     private float screenWidth;
 
     void Start() {
         screenWidth = Screen.width;
     }
-
-    // void Update()
-    // {
-    //     // if (Input.GetMouseButtonDown(0)){
-    //     //     car.velocity = Vector2.up * 5; 
-    //     // }
-
-
-    // }
 
     void FixedUpdate() {
         if (LeftBtn.LeftBtnDown){
@@ -45,14 +32,4 @@ public class MoveByTouch : MonoBehaviour
 
         }
     }
-
-    // public void OnPointerDown(PointerEventData eventData)
-    // {
-    //     throw new System.NotImplementedException();
-    // }
-
-    // public void OnPointerUp(PointerEventData eventData)
-    // {
-    //     throw new System.NotImplementedException();
-    // }
 }
