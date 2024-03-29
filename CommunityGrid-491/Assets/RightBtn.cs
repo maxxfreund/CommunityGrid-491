@@ -9,12 +9,12 @@ public class RightBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public static bool RightBtnDown = false;
 
     public void OnPointerDown(PointerEventData eventData) {
-        Debug.Log("R BTN DOWN");
+        // Debug.Log("R BTN DOWN");
         RightBtnDown = true;
     }
 
     public void OnPointerUp(PointerEventData eventData) {
-        Debug.Log("R BTN UP");
+        // Debug.Log("R BTN UP");
         RightBtnDown = false;
     }
 }
