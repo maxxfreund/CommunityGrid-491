@@ -23,6 +23,7 @@ public class MoveByTouch : MonoBehaviour
     private Vector3 currYRot;
 
     private float clampRotation;
+    private float rotationTolerance;
 
     /*
         Method that initializes movement limitations of car based on screen size  
@@ -30,6 +31,7 @@ public class MoveByTouch : MonoBehaviour
     void Start() {
         clampSideDistance = 0.45f;
         clampRotation = 40f;
+        rotationTolerance = 2.0f;
         startingXPos = cam.WorldToViewportPoint(transform.position);
         startingYRot = chassis.transform.rotation.eulerAngles;
     }
@@ -54,7 +56,7 @@ public class MoveByTouch : MonoBehaviour
             RightTurn(currXPos, currYRot);
         }
         else{
-            DriveStraight();
+            DriveStraight(currYRot);
         }
     }
 
@@ -96,8 +98,16 @@ public class MoveByTouch : MonoBehaviour
         // Debug.Log("currntX: " + currentX.x);
     }
 
-    void DriveStraight(){
-        
+    /*
+        Causes car to face forward if no buttons are pressed
+    */
+    void DriveStraight(Vector3 currYrot){
+        if (currYrot.y < startingYRot.y - rotationTolerance){
+            chassis.transform.Rotate(Time.deltaTime * rotateSpeed * yRotVector);
+        }
+        else if (currYrot.y > startingYRot.y + rotationTolerance){
+            chassis.transform.Rotate(Time.deltaTime * rotateSpeed * -yRotVector);
+        }
     }
 
     /*
