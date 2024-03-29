@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class MoveByTouch : MonoBehaviour
 {
     public Rigidbody chassis;
     public float turnSpeed;
+    public float rotateSpeed;
+    public Vector3 yRotVector;
 
     public LeftBtn leftBtn;
     public RightBtn rightBtn;
@@ -15,14 +18,20 @@ public class MoveByTouch : MonoBehaviour
     public Camera cam;
     private float clampSideDistance;
     Vector3 startingXPos;
+    Vector3 startingYRot;
     private Vector3 currXPos;
+    private Vector3 currYRot;
+
+    private float clampRotation;
 
     /*
         Method that initializes movement limitations of car based on screen size  
     */
     void Start() {
         clampSideDistance = 0.45f;
+        clampRotation = 40f;
         startingXPos = cam.WorldToViewportPoint(transform.position);
+        startingYRot = chassis.transform.rotation.eulerAngles;
     }
 
     /*
@@ -32,19 +41,20 @@ public class MoveByTouch : MonoBehaviour
     void FixedUpdate() {
 
         currXPos = FindXPos();
+        currYRot = FindYRot();
 
         HandleCarBounds(currXPos);
 
         if (LeftBtn.LeftBtnDown){
             // Debug.Log("TURN LEFT");
-            LeftTurn(currXPos);
+            LeftTurn(currXPos, currYRot);
         }
         else if (RightBtn.RightBtnDown){
             // Debug.Log("TURN RIGHT");
-            RightTurn(currXPos);
+            RightTurn(currXPos, currYRot);
         }
         else{
-
+            DriveStraight();
         }
     }
 
@@ -58,24 +68,40 @@ public class MoveByTouch : MonoBehaviour
         return currentX;
     }
 
-    void LeftTurn(Vector3 currentX){
+    Vector3 FindYRot(){
+        Vector3 currYrot = chassis.transform.rotation.eulerAngles;
+        // Debug.Log("Current y rotation: " + currYrot.y);
+        return currYrot;
+    }
+
+    void LeftTurn(Vector3 currentX, Vector3 currYrot){
         if (currentX.x > startingXPos.x - clampSideDistance){
             // transform.Translate(Time.deltaTime * turnSpeed * Vector3.left);
             chassis.AddForce(Time.deltaTime * turnSpeed * Vector3.left);
+            if (currYrot.y > startingYRot.y - clampRotation){
+                chassis.transform.Rotate(Time.deltaTime * rotateSpeed * -yRotVector);
+            }
         }
-        Debug.Log("currntX: " + currentX.x);
+        // Debug.Log("currntX: " + currentX.x);
     }
 
-    void RightTurn(Vector3 currentX){
+    void RightTurn(Vector3 currentX, Vector3 currYrot){
         if (currentX.x < startingXPos.x + clampSideDistance){
             // transform.Translate(Time.deltaTime * turnSpeed * Vector3.right);
             chassis.AddForce(Time.deltaTime * turnSpeed * Vector3.right);
+            if (currYrot.y < startingYRot.y + clampRotation){
+                chassis.transform.Rotate(Time.deltaTime * rotateSpeed * yRotVector);
+            }
         }
-        Debug.Log("currntX: " + currentX.x);
+        // Debug.Log("currntX: " + currentX.x);
+    }
+
+    void DriveStraight(){
+        
     }
 
     /*
-        If vehicle is outside of screen bounding area, stop it's velocity 
+        If vehicle is outside of screen bounding area, stop its velocity 
     */
     void HandleCarBounds(Vector3 currentX){
         if ((currentX.x < startingXPos.x - clampSideDistance) || (currentX.x > startingXPos.x + clampSideDistance)){

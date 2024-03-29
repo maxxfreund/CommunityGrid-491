@@ -1005,6 +1005,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chassis: {fileID: 1399986907}
   turnSpeed: 1000
+  rotateSpeed: 30
+  yRotVector: {x: 0, y: 5, z: 0}
   leftBtn: {fileID: 1168811368}
   rightBtn: {fileID: 526945736}
   cam: {fileID: 963194227}
