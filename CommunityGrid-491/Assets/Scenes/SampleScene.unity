@@ -271,15 +271,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475332, guid: 46d8f10cf97a8ee4a8f2b7171de0356e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 475332, guid: 46d8f10cf97a8ee4a8f2b7171de0356e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.10568851
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 475332, guid: 46d8f10cf97a8ee4a8f2b7171de0356e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.95
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 475332, guid: 46d8f10cf97a8ee4a8f2b7171de0356e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -329,9 +329,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2054387531}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 160038, guid: 46d8f10cf97a8ee4a8f2b7171de0356e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1399986908}
     - targetCorrespondingSourceObject: {fileID: 160038, guid: 46d8f10cf97a8ee4a8f2b7171de0356e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1399986907}
@@ -1010,6 +1007,8 @@ MonoBehaviour:
   turnSpeed: 5
   leftBtn: {fileID: 1168811368}
   rightBtn: {fileID: 526945736}
+  cam: {fileID: 963194227}
+  clampSideDistance: 0
 --- !u!4 &1010395413
 Transform:
   m_ObjectHideFlags: 0
@@ -1019,7 +1018,7 @@ Transform:
   m_GameObject: {fileID: 1010395411}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3189494, y: 0.71068853, z: -2.854}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1452,27 +1451,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1399986908
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399986902}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 0.052652214, y: 0.013264355, z: 0.020943196}
-  m_Center: {x: 0.000042407784, y: 0.000832587, z: -4.656614e-10}
 --- !u!64 &1399986909
 MeshCollider:
   m_ObjectHideFlags: 0
