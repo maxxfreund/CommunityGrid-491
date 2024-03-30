@@ -29,10 +29,12 @@ public class MoveByTouch : MonoBehaviour
         Method that initializes movement limitations of car based on screen size  
     */
     void Start() {
-        clampSideDistance = 0.40f;
+        // clampSideDistance = 0.40f;
+        clampSideDistance = 5.5f;
         clampRotation = 40f;
         rotationTolerance = 2.0f;
-        startingXPos = cam.WorldToViewportPoint(transform.position);
+        // startingXPos = cam.WorldToViewportPoint(transform.position);
+        startingXPos = transform.position;
         startingYRot = chassis.transform.rotation.eulerAngles;
     }
 
@@ -65,8 +67,10 @@ public class MoveByTouch : MonoBehaviour
     */
     Vector3 FindXPos(){
         // Vector3 currentX = cam.WorldToViewportPoint(transform.position);
-        Vector3 currentX = cam.WorldToViewportPoint(chassis.position);
+        // Vector3 currentX = cam.WorldToViewportPoint(chassis.position);
+        Vector3 currentX = chassis.position;
         // return currentX.x;
+        // Debug.Log("currntX: " + currentX.x);
         return currentX;
     }
 
@@ -99,7 +103,8 @@ public class MoveByTouch : MonoBehaviour
     }
 
     /*
-        Causes car to face forward if no buttons are pressed
+        Causes car to face forward if no buttons are pressed.
+        Rotation tolerance ensures no wiggle when returning to straight line drive
     */
     void DriveStraight(Vector3 currYrot){
         if (currYrot.y < startingYRot.y - rotationTolerance){
@@ -111,7 +116,7 @@ public class MoveByTouch : MonoBehaviour
     }
 
     /*
-        If vehicle is outside of screen bounding area, stop its velocity 
+        If vehicle is outside of designated bounding area, stop its velocity 
     */
     void HandleCarBounds(Vector3 currentX){
         if ((currentX.x < startingXPos.x - clampSideDistance) || (currentX.x > startingXPos.x + clampSideDistance)){
