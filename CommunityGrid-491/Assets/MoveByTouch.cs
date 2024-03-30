@@ -29,7 +29,7 @@ public class MoveByTouch : MonoBehaviour
         Method that initializes movement limitations of car based on screen size  
     */
     void Start() {
-        clampSideDistance = 0.45f;
+        clampSideDistance = 0.40f;
         clampRotation = 40f;
         rotationTolerance = 2.0f;
         startingXPos = cam.WorldToViewportPoint(transform.position);
