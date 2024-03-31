@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1832933640818287985}
   - component: {fileID: 3874317519806414366}
   m_Layer: 0
-  m_Name: OutsideBarrier1
+  m_Name: Piece1-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
