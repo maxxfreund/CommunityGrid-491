@@ -1806,8 +1806,15 @@ MonoBehaviour:
   - {fileID: 2288945500734137482, guid: d68cfc2d173b4e740a2da8298433ba70, type: 3}
   - {fileID: 2288945500734137482, guid: 7469b04d6f56a804b8a637c256a8f4bc, type: 3}
   - {fileID: 2288945500734137482, guid: 6418113731b438546ad9b3062cbffcce, type: 3}
+  - {fileID: 2288945500734137482, guid: 794c5a7495607614b8c38e1380057352, type: 3}
+  - {fileID: 2288945500734137482, guid: 00dff9b763f0f5d498acb7147e96846a, type: 3}
+  - {fileID: 2288945500734137482, guid: 89fc7297fe8c6e9439d8fe4fc6b3c5fb, type: 3}
+  - {fileID: 2288945500734137482, guid: c0b57383bd39e12419aca9621009fa14, type: 3}
+  - {fileID: 2288945500734137482, guid: 36601d2cd95cfbf488326ecf873a5e89, type: 3}
+  - {fileID: 2288945500734137482, guid: 5af3df85b1ea7a64eac423da3788b641, type: 3}
+  - {fileID: 2288945500734137482, guid: e58a4bbc0e3ba7a4da9a8dc2dc493f7f, type: 3}
+  - {fileID: 2288945500734137482, guid: c79c36651ce761943a47bf8e513fd63d, type: 3}
   spawnRate: 2
-  piece3offset: {x: 0, y: 0, z: 6}
 --- !u!1 &1959085902
 GameObject:
   m_ObjectHideFlags: 0

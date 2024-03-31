@@ -41,7 +41,7 @@ public class PieceSpawner : MonoBehaviour
     }
 
     void SpawnPiece(int i){
-        if (i == 2){
+        if (i == 2 || i == 8 || i == 9){
             Instantiate(pieces[i], transform.position + piece3offset, transform.rotation);
         }
         else{
