@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloudScript : MonoBehaviour
+public class CloudScript2 : MonoBehaviour
 {
     public float bobSpeed = 5f;
     public float bobHeight = 0.25f;
